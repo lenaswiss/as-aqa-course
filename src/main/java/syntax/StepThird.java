@@ -1,0 +1,111 @@
+package syntax;
+
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
+public class StepThird {
+    public static void main(String[] args) {
+        StepThird stepThird = new StepThird();
+        stepThird.compareInputtedInt();
+        stepThird.compareInput();
+        stepThird.checkEvenOddDouble();
+        stepThird.checkConditionsForFloat();
+
+    }
+
+    /**
+     * Task 1:
+     * create a program, that will scan int value from console and print first message if value less than 10,
+     * second message if larger, than 10 and if it is equal to 0 - third message.
+     */
+    public void compareInputtedInt() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter any digest type int");
+        try {
+            int a = scanner.nextInt();
+            if (a == 0) {
+                System.out.println("a equal to 0");
+            } else if (a < 10) {
+                System.out.println("a less than 10");
+            } else if (a > 10) {
+                System.out.println("a grater than 10");
+            } else
+                System.out.println("not expected value");
+        } catch (Exception e) {
+            System.out.println("Unsupported data type");
+        }
+    }
+
+    public void compareInput() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter any digest type double");
+        String a = scanner.nextLine();
+        try {
+            if (a.contains(".")) {
+                if (Double.valueOf(a) == 0l) {
+                    System.out.println("a equal to 0");
+                } else if (Double.valueOf(a) > 10l) {
+                    System.out.println("a grater than 10");
+                } else if (Double.valueOf(a) < 10l) {
+                    System.out.println("a less than 10");
+                } else {
+                    System.out.println("not expected value");
+                }
+            } else if (Integer.valueOf(a) instanceof Integer) {
+                if (Integer.valueOf(a) == 0) {
+                    System.out.println("a equal to 0");
+                } else if (Integer.valueOf(a) < 10) {
+                    System.out.println("a less than 10");
+                } else if (Integer.valueOf(a) > 10) {
+                    System.out.println("a grater than 10");
+                } else
+                    System.out.println("not expected value");
+            }
+        } catch (Exception e) {
+            System.out.println("Unsupported data type");
+        }
+    }
+
+    /**
+     * Task 2:
+     * create a program, that will scan double value from console and if value is odd - first message
+     * printing to console, if even - second message printing to console.
+     */
+    public void checkEvenOddDouble() {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            double dbl = scanner.nextDouble();
+            if (dbl % 2 == 0) {
+                System.out.println("Entered number is even");
+            } else {
+                System.out.println("Entered number is odd");
+            }
+        } catch (Exception e) {
+            System.out.println("Unsupported data type");
+        }
+    }
+
+
+    /**
+     * Task 3:
+     * create a program, that will scan float value from console and if this value is divisible without
+     * remainder by 2 and larger than 10 or if value equals 15 - first message is printing to the console,
+     * if not - second message is printing to console.
+     */
+    public void checkConditionsForFloat() {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            float floatVar = scanner.nextFloat();
+            if ((floatVar % 2 == 0 && floatVar > 10) || floatVar == 15) {
+                System.out.println("Entered digit is satisfied required conditions: " +
+                        "divisible without remainder by 2 AND grater than 10 OR equal 15");
+            } else {
+                System.out.println("Entered digit is not satisfied required conditions");
+            }
+        } catch (Exception e) {
+            System.out.println("Unsupported data type");
+        }
+    }
+
+
+}
