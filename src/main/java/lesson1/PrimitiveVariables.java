@@ -20,6 +20,7 @@ public class PrimitiveVariables {
         System.out.println("b3 was initialised in 18th row: " + b3);
 
         //numeric types: byte, short, int, long
+        //default value
 
         byte a, b, c;
         a = 127;
@@ -30,5 +31,12 @@ public class PrimitiveVariables {
         System.out.println(c); // -128  would be displayed because of numeric Overflow
         var testType = (a + b);
         System.out.println(testType); // 128
+
+        //numeric with decimal value float/double
+        //default value
+
+        float f1;
+        double d2;
+
     }
 }
