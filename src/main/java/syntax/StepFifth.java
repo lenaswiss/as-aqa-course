@@ -22,6 +22,10 @@ public class StepFifth {
         printArray(joinArrayNew(arrayFirstDbl, arrayFirstDbl));
         System.out.println("\n");
         printArray(joinArrayNew(arrayFirstInt, arraySecondInt));
+
+        System.out.println("\nTask 3 test ");
+        printMaxValue(joinArrayNew(arrayFirstInt, arraySecondInt));
+        printMaxValue(joinArrayNew(arrayFirstDbl, arraySecondDbl));
     }
 
     /**
@@ -73,6 +77,34 @@ public class StepFifth {
         return DoubleStream.concat(DoubleStream.of(a), DoubleStream.of(b))
                 .toArray();
     }
+
+    /**
+     * Task 3:
+     * for exist array with numbers find the biggest
+     * number and print it to the console.
+     */
+    public static void printMaxValue (int[] a){
+        int max = 0;
+        for (int i = 0; i < a.length; i++) {
+            if(max < a[i]){
+                max = a[i];
+            }
+        }
+        System.out.println("The biggest number in array is " +max);
+        System.out.println();
+    }
+
+    public static void printMaxValue (double[] a){
+        double max = 0;
+        for (int i = 0; i < a.length; i++) {
+            if(max < a[i]){
+                max = a[i];
+            }
+        }
+        System.out.println("The biggest number in array is " +max);
+        System.out.println();
+    }
+
 
     public static void printArray(int[] a) {
         for (int i = 0; i < a.length; i++) {
