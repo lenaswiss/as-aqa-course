@@ -105,7 +105,11 @@ public class StepFifth {
         System.out.println();
     }
 
-
+    /**
+     *Task 4:
+     *  create a program, that will sort by asc given array with
+     *  numbers and print result array to the console.
+     */
     public static void printArray(int[] a) {
         for (int i = 0; i < a.length; i++) {
             if (i > 0) {
