@@ -72,7 +72,7 @@ public class StepFifth {
         return array;
     }
 
-    //for loop can be replaced with enhanced 'for'
+
     public static int[] joinArrayNew(int[] a, int[] b) {
         return IntStream.concat(IntStream.of(a), IntStream.of(b))
                 .toArray();
@@ -99,6 +99,7 @@ public class StepFifth {
         System.out.println();
     }
 
+    //for loop can be replaced with enhanced 'for'
     public static void printMaxValue(double[] a) {
         double max = 0;
         for (double i : a) {
