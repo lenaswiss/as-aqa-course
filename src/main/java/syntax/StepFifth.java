@@ -8,6 +8,7 @@ public class StepFifth {
     public static int[] arraySecondInt = {-1, 4, 66, 105, 0, 13};
     public static double[] arrayFirstDbl = {-15.5, 5, 103.55, 17, 0.1, 0};
     public static double[] arraySecondDbl = {0.5, 15, 10, 1, 23, -9};
+    public static int[] testArray = {100};
 
     public static void main(String[] args) {
 
@@ -26,6 +27,9 @@ public class StepFifth {
         System.out.println("\nTask 3 test ");
         printMaxValue(joinArrayNew(arrayFirstInt, arraySecondInt));
         printMaxValue(joinArrayNew(arrayFirstDbl, arraySecondDbl));
+
+        System.out.println("\nTask 4 test ");
+        printArray(bubbleSortArrayASC(joinArray(arrayFirstInt, arraySecondInt)));
     }
 
     /**
@@ -83,33 +87,58 @@ public class StepFifth {
      * for exist array with numbers find the biggest
      * number and print it to the console.
      */
-    public static void printMaxValue (int[] a){
+    //for loop can be replaced with enhanced 'for'?
+    public static void printMaxValue(int[] a) {
         int max = 0;
         for (int i = 0; i < a.length; i++) {
-            if(max < a[i]){
+            if (max < a[i]) {
                 max = a[i];
             }
         }
-        System.out.println("The biggest number in array is " +max);
+        System.out.println("The biggest number in array is " + max);
         System.out.println();
     }
 
-    public static void printMaxValue (double[] a){
+    public static void printMaxValue(double[] a) {
         double max = 0;
         for (int i = 0; i < a.length; i++) {
-            if(max < a[i]){
+            if (max < a[i]) {
                 max = a[i];
             }
         }
-        System.out.println("The biggest number in array is " +max);
+        System.out.println("The biggest number in array is " + max);
         System.out.println();
     }
 
     /**
-     *Task 4:
-     *  create a program, that will sort by asc given array with
-     *  numbers and print result array to the console.
+     * Task 4:
+     * create a program, that will sort by asc given array with
+     * numbers and print result array to the console.
      */
+    public static int[] bubbleSortArrayASC(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[i] > a[j]) {
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+        return a;
+    }
+
+    public static double[] quickSortArrayASC(double[] a) {
+        if (a.length == 0 || a.length == 1) {
+            return a;
+        }else {
+
+        }
+        return a;
+    }
+
+
+    //additional methods DRY
     public static void printArray(int[] a) {
         for (int i = 0; i < a.length; i++) {
             if (i > 0) {
