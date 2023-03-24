@@ -42,21 +42,23 @@ public class StepThird {
         String a = scanner.nextLine();
         try {
             if (a.contains(".")) {
-                if (Double.valueOf(a) == 0l) {
+                double aDouble = Double.valueOf(a);
+                if (aDouble == 0l) {
                     System.out.println("a equal to 0");
-                } else if (Double.valueOf(a) > 10l) {
+                } else if (aDouble > 10l) {
                     System.out.println("a grater than 10");
-                } else if (Double.valueOf(a) < 10l) {
+                } else if (aDouble < 10l) {
                     System.out.println("a less than 10");
                 } else {
                     System.out.println("not expected value");
                 }
-            } else if (Integer.valueOf(a) instanceof Integer) {
-                if (Integer.valueOf(a) == 0) {
+            } else {
+                int aInt = Integer.valueOf(a);
+                if (aInt == 0) {
                     System.out.println("a equal to 0");
-                } else if (Integer.valueOf(a) < 10) {
+                } else if (aInt < 10) {
                     System.out.println("a less than 10");
-                } else if (Integer.valueOf(a) > 10) {
+                } else if (aInt > 10) {
                     System.out.println("a grater than 10");
                 } else
                     System.out.println("not expected value");
@@ -76,7 +78,7 @@ public class StepThird {
         try {
             double dbl = scanner.nextDouble();
             if (dbl % 2 == 0) {
-                System.out.println("Entered number is even");
+                System.out.println("Entered number is even"); // 0 is an even number
             } else {
                 System.out.println("Entered number is odd");
             }
