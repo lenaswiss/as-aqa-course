@@ -72,6 +72,7 @@ public class StepFifth {
         return array;
     }
 
+    //for loop can be replaced with enhanced 'for'
     public static int[] joinArrayNew(int[] a, int[] b) {
         return IntStream.concat(IntStream.of(a), IntStream.of(b))
                 .toArray();
@@ -87,7 +88,6 @@ public class StepFifth {
      * for exist array with numbers find the biggest
      * number and print it to the console.
      */
-    //for loop can be replaced with enhanced 'for'?
     public static void printMaxValue(int[] a) {
         int max = 0;
         for (int i = 0; i < a.length; i++) {
@@ -101,9 +101,9 @@ public class StepFifth {
 
     public static void printMaxValue(double[] a) {
         double max = 0;
-        for (int i = 0; i < a.length; i++) {
-            if (max < a[i]) {
-                max = a[i];
+        for (double i : a) {
+            if (max < i) {
+                max = i;
             }
         }
         System.out.println("The biggest number in array is " + max);
@@ -131,7 +131,7 @@ public class StepFifth {
     public static double[] quickSortArrayASC(double[] a) {
         if (a.length == 0 || a.length == 1) {
             return a;
-        }else {
+        } else {
 
         }
         return a;
