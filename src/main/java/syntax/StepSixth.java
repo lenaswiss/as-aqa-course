@@ -6,9 +6,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class StepSixth {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         stringFormatPrintAscColumn(); //task 1 test
         stringFormatPrintEvenWordUppercase();//task 2 test
+        countNumberOfSymbolInString();
 
     }
 
@@ -48,7 +49,7 @@ public class StepSixth {
                 System.out.println(sb.reverse());
             } else {
                 ArrayList<String> list = new ArrayList<>();
-                if(!str.contains(" ")){
+                if (!str.contains(" ")) {
                     System.out.println(str);
                     return;
                 }
@@ -61,8 +62,8 @@ public class StepSixth {
                 for (int i = 0; i < list.size(); i++) {
                     if (i % 2 == 0) {
                         System.out.print(list.get(i).toUpperCase() + " ");
-                    } else{
-                        System.out.print(list.get(i)+ " ");
+                    } else {
+                        System.out.print(list.get(i) + " ");
                     }
                 }
             }
@@ -78,6 +79,38 @@ public class StepSixth {
      * and after read a symbol, number of which must be count.
      * Program must print count of certain letters to the console.
      */
+    public static void countNumberOfSymbolInString() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int counter = 0;
+        System.out.println("****** Enter the sentence, please. *******");
+        String str = null;
+        str = reader.readLine();
+        System.out.println("****** Enter a single symbol, please. ******");
+        String symbol = reader.readLine();
+        if (symbol.isEmpty()) {
+            return;
+        }
+        if (!str.contains(symbol)) {
+            System.out.println(symbol + " was not found in given sentence.");
+        } else {
+            char[] charArray = str.toCharArray();
+            char c = symbol.charAt(0);
+            for (int i = 0; i < charArray.length; i++) {
+                if (charArray[i] == c) {
+                    counter++;
+                }
+            }
+        }
+        switch (counter) {
+            case 0:
+                break;
+            case 1:
+                System.out.println("Only one symbol" + " \"" + symbol + "\" " + "was found in the entered sentence.");
+                break;
+            default:
+                System.out.println(counter + " \"" + symbol + "\" " + "symbols were found in the entered sentence.");
+        }
+    }
 
     /**
      * Task 4*:
