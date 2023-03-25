@@ -44,10 +44,14 @@ public class StepSixth {
         try {
             String str = bufferedReader.readLine();
             StringBuilder sb = new StringBuilder(str);
-            if (str.contains("java")) {
+            if (str.contains("java")) {//looks for any place ignoring prefixes and ending of the word, using spaces it can be changed
                 System.out.println(sb.reverse());
             } else {
                 ArrayList<String> list = new ArrayList<>();
+                if(!str.contains(" ")){
+                    System.out.println(str);
+                    return;
+                }
                 while (str.contains(" ")) {
                     int index = str.indexOf(" ");
                     String temp = str.substring(0, index);
