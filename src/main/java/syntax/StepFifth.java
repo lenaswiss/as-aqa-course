@@ -9,10 +9,12 @@ public class StepFifth {
     public static double[] arrayFirstDbl = {-15.5, 5, 103.55, 17, 0.1, 0};
     public static double[] arraySecondDbl = {0.5, 15, 10, 1, 23, -9};
     public static int[] testArray = {100};
+    public static double[] emptyArray = new double[0];
+
 
     public static void main(String[] args) {
 
-
+        System.out.println(avgValueArray(emptyArray));
         System.out.println("Task 1 test");
         System.out.println(" AVG of int [] array : " + avgValueArray(arrayFirstInt));
         System.out.println(" \n AVG of double [] array : " + avgValueArray(arrayFirstDbl));
@@ -29,7 +31,8 @@ public class StepFifth {
         printMaxValue(joinArrayNew(arrayFirstDbl, arraySecondDbl));
 
         System.out.println("\nTask 4 test ");
-        printArray(bubbleSortArrayASC(joinArray(arrayFirstInt, arraySecondInt)));
+        sortArrayASCAndPrint(joinArray(arrayFirstInt, arraySecondInt));
+
     }
 
     /**
@@ -39,19 +42,29 @@ public class StepFifth {
      * for array with any number of elements.
      */
     public static double avgValueArray(double[] array) {
-        double sum = 0;
-        for (double d : array) {
-            sum += d;
+        try {
+            double sum = 0;
+            for (double d : array) {
+                sum += d;
+            }
+            return sum / array.length;
+        } catch (Exception e) {
+            throw new RuntimeException();
         }
-        return sum / array.length;
+
     }
 
     public static int avgValueArray(int[] array) {
-        int sum = 0;
-        for (int i : array) {
-            sum += i;
+        if (array.length == 0) { // checks math exception
+            Exception e = new Exception("The array length 0 ");
+            return 0;
+        } else {
+            int sum = 0;
+            for (int i : array) {
+                sum += i;
+            }
+            return sum / array.length;
         }
-        return sum / array.length;
     }
 
     /**
@@ -116,6 +129,8 @@ public class StepFifth {
      * create a program, that will sort by asc given array with
      * numbers and print result array to the console.
      */
+
+
     public static int[] bubbleSortArrayASC(int[] a) {
         for (int i = 0; i < a.length; i++) {
             for (int j = i + 1; j < a.length; j++) {
@@ -129,13 +144,17 @@ public class StepFifth {
         return a;
     }
 
-    public static double[] quickSortArrayASC(double[] a) {
-        if (a.length == 0 || a.length == 1) {
-            return a;
-        } else {
-
+    public static void sortArrayASCAndPrint(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[i] > a[j]) {
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
         }
-        return a;
+        printArray(a);
     }
 
 
