@@ -7,7 +7,7 @@ public class StepFourth {
 
     public static void main(String[] args) {
         StepFourth stepFourth = new StepFourth();
-        stepFourth.printNumbers(17);
+        stepFourth.printNumbers();
         stepFourth.calculateFactorial();
         stepFourth.ageValidation();
     }
@@ -20,23 +20,29 @@ public class StepFourth {
      * value that will be printed multiple to 3, only message ‘The number multiple to 3’
      * must be printed in the console.
      */
-    public void printNumbers(int a) {
-        if (a < 0) {
-            System.out.println(" error: number is negative");
-        } else if (a % 3 == 0 && a != 0) {
-            System.out.println("The number multiple to 3");
-        } else if (a >= 0 && a % 2 == 0) {
-            System.out.println(" The number is even ");
-            for (int i = 0; i < a; i++) {
-                System.out.print(i + ", ");
+    public void printNumbers() {
+       Scanner scanner = new Scanner(System.in);
+        try {
+            int a = scanner.nextInt();
+            if (a < 0) {
+                System.out.println(" error: number is negative");
+            } else if (a % 3 == 0 && a != 0) {
+                System.out.println("The number multiple to 3");
+            } else if (a >= 0 && a % 2 == 0) {
+                System.out.println(" The number is even ");
+                for (int i = 0; i < a; i++) {
+                    System.out.print(i + ", ");
+                }
+            } else {
+                int counter = 0;
+                do {
+                    System.out.print(counter + ", ");
+                    counter++;
+                    a--;
+                } while (a > 0);
             }
-        } else {
-            int counter = 0;
-            do {
-                System.out.print(counter + ", ");
-                counter++;
-                a--;
-            } while (a > 0);
+        } catch (Exception e) {
+            e.getStackTrace();
         }
     }
 
@@ -65,17 +71,33 @@ public class StepFourth {
      * create a program that will find and print the largest integer divisor for
      * a given number in the console. It must not be the given number.
      */
-    public void maxIntegerDivisorOfNumber() {
+    public static void maxIntegerDivisorOfNumber() {
+        System.out.println("Task 3");
         System.out.println(" Enter number ");
+        int result = 1;
         Scanner scanner = new Scanner(System.in);
         try {
             int a = scanner.nextInt();
-
-            int result = 0;
+            if (a == 0) {
+                System.out.println(" 0 can be divided by any integer, the result will be 0");
+            }
+            if (a == 1) {
+                System.out.println(" The only one integer divider for 1 is 1");
+            }
+            int counter = 2;
+            while (counter < a - 1) {
+                if (a % counter == 0) {
+                    if (a / counter > result) {
+                        result = a / counter;
+                    }
+                }
+                counter++;
+            }
             System.out.printf("Max divisor for %d is %d ", a, result);
         } catch (Exception e) {
             System.out.println(" Error: invalid data type");
         }
+        System.out.println();
     }
 
     /**
